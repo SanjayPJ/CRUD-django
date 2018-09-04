@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3 class="mb-2">Read</h3>
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for obj in objs %}
+        <tr>
+            <td>{{ obj.pk }}</td>
+            <td>{{ obj.name }}</td>
+            <td>{{ obj.age }}</td>
+            <td><a href="{% url 'update' pk=obj.pk %}">Update</a></td>
+            <td><a href="{% url 'delete' pk=obj.pk %}">Delete</a></td>         
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock content %}

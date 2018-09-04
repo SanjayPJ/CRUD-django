@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from view_controller import views
 
 urlpatterns = [
+    path('', views.index, name="index"),
     path('admin/', admin.site.urls),
+    path('read/', views.read, name='read'),
+    path('create/', views.create, name='create'),
+    path('update/<slug:pk>/', views.update, name='update'),
+    path('delete/<slug:pk>/', views.delete, name='delete'),
 ]
